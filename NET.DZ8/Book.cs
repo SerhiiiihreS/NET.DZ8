@@ -8,21 +8,16 @@ using System.Threading.Tasks;
 
 namespace NET.DZ8
 {
-    internal class Book:IComparable
+    internal class Book:IComparable,ICloneable 
     {
-        string name;
-        string writer;
-        string genre;
-        string publisher;
-        int year;
+        public string name { get; set; }
+        public string writer { get; set; }
+        public string genre { get; set; }
+        public string publisher { get; set; }
+        public int year { get; set; }
         public Book() {
-            name = Console.ReadLine();
-            writer = Console.ReadLine();
-            genre = Console.ReadLine();
-            publisher = Console.ReadLine();
-            year = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
         }
+
         public Book(string nm, string wrtr,string gnr,string pbler,int yr)
         {
             name = nm;
@@ -108,6 +103,11 @@ namespace NET.DZ8
                 }
                 throw new NotImplementedException();
             }
+        }
+
+        public object Clone()
+        {
+            return new Book( name,writer,genre,publisher,year);
         }
     }
 }

@@ -45,7 +45,32 @@ namespace NET.DZ8
                 central[i].Print();
             }
             Console.WriteLine();
-        }
 
+            Book e = new Book();
+            Book a = e;
+            a.genre = "cvgbh";
+            a.writer = "vcb hnjbg";
+            a.year = 2345;
+            a.publisher = "dfgfhyh";
+            a.name = "dfgnuhb;";
+            Console.WriteLine(e.ToString());
+            Func(e);
+            Console.WriteLine(e.ToString());
+
+        }
+        static void Func(ICloneable cloneable)
+        {
+            object b = cloneable.Clone();
+            Console.WriteLine(b.ToString());
+            Book e = b as Book;
+            e.name = "ewrtgh";
+            e.year = 2134;
+            e.writer = "werfgbfh";
+            e.publisher = "dsfdgfhn";
+            e.genre = "cvbhgj";
+            Console.WriteLine(b.ToString());
+
+
+        }
     }
 }
